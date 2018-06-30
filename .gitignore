@@ -109,5 +109,3 @@ venv.bak/
 #Database
 *.sqlite3
 
-#config files
-*.config.save

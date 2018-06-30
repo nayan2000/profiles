@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Logout{% endblock %}
+
+{% block nav %}
+<ul>
+<li><a class="active" href="#"> Logout </a></li>
+<li><a href="{% url 'login'"> Login </a></li>
+<li><a href="{% url 'signup' %}">Create a New Account</a></li>
+<li><a href="{% url 'about' %}">About Me</a></li>
+</ul>
+{% endblock %}
+{% block content %}
+  <h2>Hello! You have been successfully logged out.</h2>
+  <h4> Thanks for spending some quality time with the website today.</h4>
+  <a href="{% url 'login' %}">
+    <button class="button" style="vertical-align:middle; width:200px" type="submit"><span> Login again </span></button></a>
+
+  <p>
+     Have a nice day!
+  </p>
+
+{% endblock %}

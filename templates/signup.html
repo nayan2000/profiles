@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block nav %}
+<ul>
+<li><a class="active" href="{% url 'signup' %}">Create a New Account</a></li>
+<li><a href="{% url 'login' %}">Have an Account? Login </a></li>
+<li><a href="{% url 'about' %}">About Me</a></li></ul>
+{% endblock %}
+{% block content %}
+  <h1 style="background-color: #4f3ace; color:#23efaa; text-align:center;"> SIGN UP</h1>
+  <form method="post">
+    {% csrf_token %}
+
+    {% for field in form %}
+      <p class="form-custom" >
+        {{ field.label_tag }}<br />
+        {{ field }}
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+    </p>
+    {% endfor %}
+    <br />
+    <button class="button" style="vertical-align:middle" type="submit"><span> Sign Up </span></button>
+  </form>
+{% endblock %}

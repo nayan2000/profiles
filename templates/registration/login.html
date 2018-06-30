@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block nav %}
+<ul>
+<li><a class="active" href="#">Login</a></li>
+<li><a href="{% url 'signup' %}">Create a New Account</a></li>
+<li><a href="{% url 'about' %}">About Me</a></li></ul>
+{% endblock %}
+{% block content %}
+  <h2>Login</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% for error in field.errors %}
+      <p style="color: blue">{{ error }}</p>
+    {% endfor %}
+    <button class="button" style="vertical-align:middle" type="submit"><span> Login</span></button>
+  </form>
+{% endblock %}

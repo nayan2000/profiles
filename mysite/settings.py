@@ -25,6 +25,7 @@ SECRET_KEY = SEC
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+#Put this to False while hosting
 
 ALLOWED_HOSTS = []
 

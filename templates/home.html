@@ -12,11 +12,11 @@ HOME PAGE
 <li><a href="{% url 'about' %}">About Me</a></li></ul>
 {% endblock %}
 {% block content %}
-<div class="image-upload">
-    <label for="file-input">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqV9NdKL5sLeya9zSDAjA4_JbsaGrlEwPBay2SjtJn7mzMtjEK" alt="User Image" align="left">
-    </label>
-<input id="file-input" type="file"/></div>
+
+{% if userinfo.image %}
+<a href="{{ userinfo.image.url }}">
+    <img src="{{ userinfo.image.url}}" alt="Profile Picture" /> </a>
+{% endif %}
 <p class="form-custom">
   <br /><br /> Welcome to the home page! Here's your profile:
   <br />  <br />  <label> FULL NAME : </label>

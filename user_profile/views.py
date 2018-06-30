@@ -19,7 +19,7 @@ def home(request):
 
 def signup(request):
     if request.method == 'POST':
-        form = SignUpForm(request.POST)
+        form = SignUpForm(request.POST, request.FILES)
         if form.is_valid():
             user = form.save()
             user.refresh_from_db()  # load the profile instance created by the signal
@@ -30,7 +30,7 @@ def signup(request):
             user.profile.reddit_profile = form.cleaned_data.get('reddit_profile')
             user.profile.facebook_profile = form.cleaned_data.get('facebook_profile')
             user.profile.linkedin_profile = form.cleaned_data.get('linkedin_profile')
-
+            user.profile.image = form.cleaned_data.get('image')
             user.save()
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=user.username, password=raw_password)

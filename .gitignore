@@ -110,4 +110,4 @@ venv.bak/
 *.sqlite3
 
 #config files
-mysite/config.py
+*.config.save
